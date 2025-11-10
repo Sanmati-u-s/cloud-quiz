@@ -1,3 +1,13 @@
+// Navigation for roles
+document.addEventListener("DOMContentLoaded", function() {
+  const studentBtn = document.getElementById("student-btn");
+  const instructorBtn = document.getElementById("instructor-btn");
+
+  if (studentBtn) studentBtn.addEventListener("click", () => window.location.href = "student.html");
+  if (instructorBtn) instructorBtn.addEventListener("click", () => window.location.href = "instructor.html");
+});
+
+// Quiz logic (unchanged)
 const questions = [
   {
     text: "What does HTML stand for?",
@@ -13,9 +23,16 @@ const questions = [
 
 let current = 0;
 function startQuiz() {
-  document.getElementById("home").style.display = "none";
-  document.getElementById("quiz").style.display = "block";
-  showQuestion();
+  const home = document.getElementById("home");
+  const quiz = document.getElementById("quiz");
+  if (home && quiz) {
+    home.style.display = "none";
+    quiz.style.display = "block";
+    showQuestion();
+  } else {
+    // If we’re on student.html, just go to index
+    window.location.href = "index.html";
+  }
 }
 
 function showQuestion() {
