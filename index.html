@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Quiz Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>☁️ Cloud Quiz Platform</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Login</a>
+      <a href="#">Leaderboard</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <h2>Welcome!</h2>
+      <p>Students and instructors can create and take quizzes here.</p>
+      <button onclick="startQuiz()">Start Quiz</button>
+    </section>
+
+    <section id="quiz" style="display:none;">
+      <h2>Simple Quiz</h2>
+      <div id="question"></div>
+      <div id="options"></div>
+      <button id="nextBtn" onclick="nextQuestion()">Next</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
