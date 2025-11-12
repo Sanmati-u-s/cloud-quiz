@@ -1,43 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cloud Quiz Platform</title>
+  <title>Student Login | Cloud Quiz</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>☁️ Cloud Quiz Platform</h1>
-    <nav>
-      <a href="#">Login</a>
-      <a href="#">Leaderboard</a>
-    </nav>
-    
+  <div class="container">
+    <h1>☁️CloudRush</h1>
+    <div class="card">
+      <h2>Welcome to <section>CloudRush!</section></h2>
+      <form id="loginForm">
+        <input type="text" id="studentId" placeholder="Student ID" required>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
 
-    <section id="home">
-      <h2>Welcome!</h2>
-      <p>Choose your role!</p>
-      <div class="button-container">
-        <button id="student-btn">Student</button>
-        <button id="instructor-btn">Instructor</button>
-      </div>
-    </section>
-
-
-  </header>
-
-  <main>
-   
-
-    <section id="quiz" style="display:none;">
-      <h2>Simple Quiz</h2>
-      <div id="question"></div>
-      <div id="options"></div>
-      <button id="nextBtn" onclick="nextQuestion()">Next</button>
-    </section>
-  </main>
-
-  <script src="script.js"></script>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const studentId = document.getElementById("studentId").value;
+      localStorage.setItem("username", username);
+      localStorage.setItem("studentId", studentId);
+      window.location.href = "start.html";
+    });
+  </script>
 </body>
 </html>
