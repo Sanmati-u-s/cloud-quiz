@@ -1,6 +1,6 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #0F172A; /* Dark navy */
+  background-color: #030712; /* deeper dark blue/black */
   margin: 0;
   display: flex;
   justify-content: center;
@@ -12,36 +12,35 @@ body {
 .container {
   text-align: center;
   padding: 2rem;
-  background: #1E293B; /* Slightly lighter panel */
+  background: #0B1220; /* darker blue panel */
   border-radius: 20px;
-  box-shadow: 0 0 25px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.25);
   width: 90%;
   max-width: 500px;
-  border: 1px solid rgba(99, 102, 241, 0.3);
-}
-h1{
-  color: #EC4899;
-  text-shadow: 0 0 10px rgba(225, 68, 147, 0.8);
+  border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
-section{
-  color: #b23dc9;
-  text-shadow: 0 0 8px rgba(176, 56, 199, 0.8);
+h1 {
+  color: #60A5FA; /* sky blue */
+  text-shadow: 0 0 12px rgba(96, 165, 250, 0.8);
 }
 
+section {
+  color: #38BDF8; /* light cyan blue */
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.7);
+}
 
-
- h2 {
-  color: #6366F1;
-  text-shadow: 0 0 8px rgba(99, 102, 241, 0.8);
+h2 {
+  color: #3B82F6; /* main blue */
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
 }
 
 .card {
-  background: rgba(30, 41, 59, 0.8);
+  background: rgba(8, 12, 24, 0.85); /* darker blue glass */
   border-radius: 15px;
   padding: 2rem;
   margin-top: 1rem;
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  border: 1px solid rgba(59, 130, 246, 0.25);
 }
 
 form {
@@ -53,7 +52,7 @@ form {
 input[type="text"],
 input[type="password"] {
   padding: 10px;
-  border: 2px solid #6366F1;
+  border: 2px solid #3B82F6;
   background-color: transparent;
   color: #E2E8F0;
   border-radius: 10px;
@@ -62,12 +61,12 @@ input[type="password"] {
 }
 
 input:focus {
-  border-color: #EC4899;
-  box-shadow: 0 0 8px #EC4899;
+  border-color: #38BDF8; /* cyan glow */
+  box-shadow: 0 0 10px #38BDF8;
 }
 
 button, .btn {
-  background: linear-gradient(90deg, #6366F1, #EC4899);
+  background: linear-gradient(90deg, #3B82F6, #06B6D4); /* blue → cyan */
   color: white;
   font-weight: 600;
   padding: 12px 25px;
@@ -77,38 +76,38 @@ button, .btn {
   text-decoration: none;
   display: inline-block;
   transition: 0.3s;
-  box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
 }
 
 button:hover, .btn:hover {
-  background: linear-gradient(90deg, #7C3AED, #F472B6);
-  box-shadow: 0 0 20px rgba(236, 72, 153, 0.8);
+  background: linear-gradient(90deg, #2563EB, #0891B2);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.8);
 }
 
 .quiz-container {
   width: 90%;
   max-width: 600px;
-  background: #1E293B;
-  border: 1px solid rgba(99, 102, 241, 0.4);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+  background: #0B1220;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.35);
 }
 
 .question {
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(3, 7, 18, 0.85); /* dark navy */
   border-radius: 10px;
   padding: 15px;
   margin: 10px 0;
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  border: 1px solid rgba(96, 165, 250, 0.25);
   transition: transform 0.2s ease;
 }
 
 .question:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
 }
 
 .question p {
-  color: #EC4899;
+  color: #60A5FA;
   font-weight: 600;
 }
 
@@ -119,7 +118,7 @@ label {
 }
 
 input[type="radio"] {
-  accent-color: #6366F1;
+  accent-color: #3B82F6;
 }
 
 table {
@@ -130,7 +129,7 @@ table {
 }
 
 table, th, td {
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  border: 1px solid rgba(59, 130, 246, 0.25);
 }
 
 th, td {
@@ -138,9 +137,10 @@ th, td {
 }
 
 th {
-  background-color: rgba(99, 102, 241, 0.3);
+  background-color: rgba(59, 130, 246, 0.2);
 }
 
 tr:nth-child(even) {
-  background-color: rgba(30, 41, 59, 0.6);
+  background-color: rgba(11, 18, 32, 0.7);
 }
+
