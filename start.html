@@ -3,15 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Start Quiz | Cloud Quiz</title>
+  <title>Select Level | Cloud Quiz</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Welcome, <span id="user"></span> ☁️</h1>
-    <p>Test your knowledge on Cloud Computing! You’ll have 10 questions.</p>
-    <p>Good Luck!</p>
-    <a href="quiz.html" class="btn">Start Quiz</a>
+    <h1>Welcome, <span id="user"></span>!☁️</h1>
+    <p>Select the level for the Cloud Computing quiz.</p>
+
+    <div class="level-buttons">
+      <a href="quiz.html?level=beginner" class="btn">Beginner</a>
+      <a href="quiz.html?level=intermediate" class="btn">Intermediate</a>
+      <a href="quiz.html?level=hard" class="btn">Hard</a>
+    </div>
   </div>
 
   <script>
