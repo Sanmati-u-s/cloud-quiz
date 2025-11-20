@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard | CloudRush</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>🏆 Leaderboard</h1>
+
+    <div class="card">
+      <h2>Top Scorers</h2>
+
+      <table id="leaderboardTable">
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
+          <th>Level</th>
+        </tr>
+      </table>
+
+      <a href="dashboard.html" class="btn">Back to Dashboard</a>
+    </div>
+  </div>
+
+  <script type="module">
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import {
+      getFirestore,
+      collection,
+      getDocs,
+      query,
+      orderBy,
+      limit
+    } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+    // Firebase config (your backend)
+    const firebaseConfig = {
+      apiKey: "AIzaSyDtfDmdO-lNYV3RubGwk63zwwjtlZ3P3W8",
+      authDomain: "cloudquizbackend.firebaseapp.com",
+      projectId: "cloudquizbackend",
+      storageBucket: "cloudquizbackend.firebasestorage.app",
+      messagingSenderId: "378604806682",
+      appId: "1:378604806682:web:e756c65303d1d4a65027a3",
+      measurementId: "G-NMV3Y5PS7D"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const leaderboardTable = document.getElementById("leaderboardTable");
+
+    async function loadLeaderboard() {
+      try {
+        // Query: sort by score → high to low
+        const qLeaderboard = query(
+          collection(db, "leaderboard"),
+          orderBy("score", "desc"),
+          orderBy("createdAt", "asc"),
+          limit(10)
+        );
+
+        const snapshot = await getDocs(qLeaderboard);
+
+        let rank = 1;
+
+        snapshot.forEach(docSnap => {
+          const data = docSnap.data();
+
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${rank}</td>
+            <td>${data.name}</td>
+            <td>${data.score}</td>
+            <td>${data.level}</td>
+          `;
+
+          leaderboardTable.appendChild(row);
+          rank++;
+        });
+
+      } catch (err) {
+        console.error("Error loading leaderboard:", err);
+      }
+    }
+
+    loadLeaderboard();
+  </script>
+
+</body>
+</html>

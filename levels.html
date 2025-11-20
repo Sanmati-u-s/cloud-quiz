@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Level | CloudRush</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1><span id="courseName"></span></h1>
+    <p>Select difficulty level</p>
+
+    <div class="card">
+
+      <!-- LEVEL BUTTONS -->
+      <div id="levelButtons">
+        <button class="level-btn" data-level="low">Low</button>
+        <button class="level-btn" data-level="medium">Medium</button>
+        <button class="level-btn" data-level="hard">Hard</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // get ?course= from URL
+    const params = new URLSearchParams(window.location.search);
+    const course = params.get("course");
+
+    const courseNames = {
+      cloud: "Cloud Computing",
+      ml: "Machine Learning",
+      se: "Software Engineering",
+      cn2: "Computer Networks 2"
+    };
+
+    // Set course name on top
+    document.getElementById("courseName").innerText = courseNames[course];
+
+    // When user clicks on a level → show popup → start quiz
+    document.querySelectorAll(".level-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const level = btn.dataset.level;
+        const courseName = courseNames[course];
+
+        // POPUP
+        alert(`The quiz for ${courseName} has started!`);
+
+        // redirect to quiz page immediately
+        window.location.href = `quiz.html?course=${course}&level=${level}`;
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -7,19 +7,34 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <div class="container quiz-container">
     <h1 id="quizTitle">Choose the Right Option</h1>
     <p id="levelLabel"></p>
 
     <form id="quizForm">
-      <!-- Questions will be injected here -->
       <div id="questions"></div>
 
-      <button type="submit">Submit Quiz</button>
+      <!-- Updated GREEN submit button -->
+      <button id="submitBtn" type="submit" class="green-submit">Submit Quiz</button>
     </form>
   </div>
 
-  <!-- Use type="module" because script.js imports Firebase -->
+  <!-- Firebase + Quiz Logic -->
   <script type="module" src="script.js"></script>
+
+  <!-- Confirmation Logic -->
+  <script>
+    document.getElementById("submitBtn").onclick = function (e) {
+      e.preventDefault();
+
+      if (confirm("Are you sure you want to submit the quiz?")) {
+        alert("Quiz successfully submitted for scoring");
+        document.getElementById("quizForm")
+          .dispatchEvent(new Event("submit"));
+      }
+    };
+  </script>
+
 </body>
 </html>

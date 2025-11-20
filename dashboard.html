@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | CloudRush</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <h2>CloudRush</h2>
+    <div class="nav-links">
+      <a href="#" id="viewProfileBtn">View Profile</a>
+      <a href="index.html" id="logoutBtn">Logout</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Welcome, <span id="userName"></span> ☁️</h1>
+
+    <div class="card">
+      <h2>📘 Courses</h2>
+
+      <button class="dashboard-btn" data-course="cloud">Cloud Computing</button>
+      <button class="dashboard-btn" data-course="ml">Machine Learning</button>
+      <button class="dashboard-btn" data-course="se">Software Engineering</button>
+      <button class="dashboard-btn" data-course="cn2">Computer Networks 2</button>
+    </div>
+
+    <div class="card">
+      <h2>🏆 Leaderboard</h2>
+      <button class="dashboard-btn" onclick="window.location.href='userHistory.html'">My Quiz History</button>
+      <button class="dashboard-btn" onclick="window.location.href='leaderboard.html'">View Leaderboard</button>
+    </div>
+  </div>
+
+  <!-- PROFILE POPUP -->
+  <div id="profilePopup" class="popup hidden">
+    <div class="popup-content">
+      <h2>Your Profile</h2>
+      <p><b>Student ID:</b> <span id="profileId"></span></p>
+      <p><b>Username:</b> <span id="profileUsername"></span></p>
+      <button class="dashboard-btn" onclick="closeProfile()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("userName").innerText = localStorage.getItem("username");
+
+    document.querySelectorAll(".dashboard-btn").forEach(btn => {
+      if (btn.dataset.course) {
+        btn.addEventListener("click", () => {
+          const course = btn.dataset.course;
+          window.location.href = `levels.html?course=${course}`;
+        });
+      }
+    });
+
+    document.getElementById("viewProfileBtn").onclick = () => {
+      document.getElementById("profileId").innerText = localStorage.getItem("studentId");
+      document.getElementById("profileUsername").innerText = localStorage.getItem("username");
+      document.getElementById("profilePopup").classList.remove("hidden");
+    };
+
+    function closeProfile() {
+      document.getElementById("profilePopup").classList.add("hidden");
+    }
+  </script>
+
+</body>
+</html>
