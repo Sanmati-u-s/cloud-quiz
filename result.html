@@ -13,6 +13,8 @@
     <div class="card">
       <h2>Your Score: <span id="score"></span></h2>
 
+      <p id="levelInfo"></p>
+
       <h3>Leaderboard</h3>
       <table id="leaderboard">
         <tr>
@@ -26,67 +28,8 @@
     </div>
   </div>
 
-  <!-- Firebase SDK -->
-  <script type="module">
-    import { initializeApp } 
-      from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-
-    import { getFirestore } 
-      from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyDtfDmdO-lNYV3RubGwk63zwwjtlZ3P3W8",
-      authDomain: "cloudquizbackend.firebaseapp.com",
-      projectId: "cloudquizbackend",
-      storageBucket: "cloudquizbackend.appspot.com",
-      messagingSenderId: "378604806682",
-      appId: "1:378604806682:web:e756c65303d1d4a65027a3"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    window.db = db;
-  </script>
-
-  <!-- Load Full Leaderboard -->
-  <script type="module">
-    import {
-      collection,
-      query,
-      orderBy,
-      getDocs
-    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-    async function loadLeaderboard() {
-      const table = document.getElementById("leaderboard");
-
-      const score = localStorage.getItem("quizScore");
-      document.getElementById("score").innerText = score;
-
-      const qAll = query(
-        collection(window.db, "leaderboard"),
-        orderBy("score", "desc")
-      );
-
-      const snap = await getDocs(qAll);
-
-      let rank = 1;
-      snap.forEach(doc => {
-        const data = doc.data();
-        const row = document.createElement("tr");
-
-        row.innerHTML = `
-          <td>${rank}</td>
-          <td>${data.name}</td>
-          <td>${data.score}</td>
-        `;
-        table.appendChild(row);
-        rank++;
-      });
-    }
-
-    loadLeaderboard();
-  </script>
+  <!-- ONLY YOUR JS -->
+  <script type="module" src="script.js"></script>
 
 </body>
 </html>
