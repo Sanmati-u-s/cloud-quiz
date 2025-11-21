@@ -107,8 +107,9 @@ if (page.includes("quiz")) {
 
     localStorage.setItem("quizScore", score);
     
-    window.location.href = "result.html";
+    
      alert("Quiz successfully submitted!");
+     window.location.href = "result.html";
   });
 }
 

@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Login | Cloud Quiz</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <div class="container">
-    <h1>☁️ CloudRush</h1>
+    <h1><section id="c1">CLOUDRUSH</section>☁️ </h1>
     <div class="card">
-      <h2>Welcome to CloudRush!</h2>
+      <h2>Welcome to <section id="c2">CloudRush!</section></h2>
       <form id="loginForm">
         <input type="text" id="username" placeholder="Username" required>
         <input type="text" id="studentId" placeholder="Student ID" required>
@@ -21,14 +23,26 @@
   </div>
 
   <script>
-    document.getElementById("loginForm").addEventListener("submit", function(e){
-      e.preventDefault();
-      const username = document.getElementById("username").value;
-      const studentId = document.getElementById("studentId").value;
-      localStorage.setItem("username", username);
-      localStorage.setItem("studentId", studentId);
-      window.location.href = "start.html";
-    });
-  </script>
+  document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const studentId = document.getElementById("studentId").value;
+    const password = document.getElementById("password").value;
+
+    // 🚨 Password validity check
+    if (password.length !== 4) {
+      alert("Password must be exactly 4 characters.");
+      return;  // stop form submission
+    }
+
+    // If valid → continue
+    localStorage.setItem("username", username);
+    localStorage.setItem("studentId", studentId);
+
+    window.location.href = "start.html";
+  });
+</script>
+
 </body>
 </html>

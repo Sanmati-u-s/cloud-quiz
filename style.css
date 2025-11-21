@@ -23,13 +23,33 @@ body {
 
 h1 {
   color: #60A5FA; /* sky blue */
-  text-shadow: 0 0 12px rgba(45, 112, 194, 0.8);
+  text-shadow: 0 0 5px rgba(45, 112, 194, 0.8);
 }
 
-section {
-  color: #38BDF8; /* light cyan blue */
-  text-shadow: 0 0 12px rgba(56, 189, 248, 0.7);
+#c1 {
+  font-family: "Orbitron", sans-serif; 
+  font-weight: 700;
+  font-size: 2rem;
+  color:linear-gradient(deg, #49d6e0, #b955f7);
+
+  background: linear-gradient(90deg, #61bcd2, #b955f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 0 500px rgba(150, 197, 255, 0.6),
+               0 0 50px rgba(182, 85, 247, 0.5),
+               0 0 20px rgba(39, 13, 85, 0.45);
 }
+
+#c2 {
+  font-size: 1.5rem;   
+  color: #9569e7;
+    font-family: "Orbitron", sans-serif; 
+    text-shadow: none;
+
+}
+
+
 
 h2 {
   color: #3B82F6; /* main blue */
@@ -63,9 +83,9 @@ input[type="password"] {
 }
 
 input:focus {
-  border-color: #A855F7;
-  box-shadow: 0 0 10px rgba(86, 34, 135, 0.5),
-              0 0 15px rgba(168, 85, 247, 0.5);
+  border-color: #9055f7;
+  box-shadow: 0 0 10px rgba(63, 34, 135, 0.5),
+              0 0 15px rgba(147, 85, 247, 0.5);
 }
 
 /* ✨ Button pop */
@@ -183,17 +203,22 @@ tr:nth-child(even) {
 
 /* Green Submit Button */
 #submit{
-  background: #22c55e !important; /* green */
+  background: #044826 !important; /* green */
   background-size: 100% !important;
-  box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+  box-shadow: 0 0 10px rgba(14, 96, 112, 0.4);
 }
 
 button.submit-green:hover {
   box-shadow: 0 0 20px rgba(34, 197, 94, 0.7);
-  transform: scale(1.03);
+  transform: scale(0.03);
 }
 /* Minimal Border Level Buttons */
 .level-buttons .btn {
+  display: flex;
+  flex-direction: column;  /* stack buttons vertically */
+  gap: 15px;               /* spacing between buttons */
+  margin-top: 25px;        /* spacing from leaderboard */
+  align-items: center;
   background: transparent !important;
   border: 2px solid #3B82F6;
   color: #3B82F6;
@@ -203,10 +228,35 @@ button.submit-green:hover {
 }
 
 .level-buttons .btn:hover {
+  
   background: rgba(59, 130, 246, 0.15);
   color: #60A5FA;
   border-color: #60A5FA;
   transform: scale(1.05);
+
 }
 
 
+/*new*/
+/* Clean button link for result page */
+.result-btn {
+  display: inline-block;
+  margin-top: 20px;      /* spacing from table */
+  padding: 12px 25px;
+  text-decoration: none; /* removes underline */
+  background: linear-gradient(90deg, #9f3bf6, #06B6D4);
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(146, 59, 246, 0.4);
+  transition: 0.3s ease;
+}
+
+.result-btn:hover {
+  box-shadow: 0 0 15px rgba(121, 30, 219, 0.7);
+  transform: translateY(-2px);
+}
+
+#leaderboard {
+  margin-bottom: 25px;   /* pushes button down */
+}
