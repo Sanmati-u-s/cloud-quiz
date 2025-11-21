@@ -18,11 +18,12 @@ body {
   width: 90%;
   max-width: 500px;
   border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 35px rgba(56, 189, 248, 0.15);
 }
 
 h1 {
   color: #60A5FA; /* sky blue */
-  text-shadow: 0 0 12px rgba(96, 165, 250, 0.8);
+  text-shadow: 0 0 12px rgba(45, 112, 194, 0.8);
 }
 
 section {
@@ -49,6 +50,7 @@ form {
   gap: 1rem;
 }
 
+/* ✨ More colorful input glow */
 input[type="text"],
 input[type="password"] {
   padding: 10px;
@@ -57,31 +59,32 @@ input[type="password"] {
   color: #E2E8F0;
   border-radius: 10px;
   outline: none;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 input:focus {
-  border-color: #38BDF8; /* cyan glow */
-  box-shadow: 0 0 10px #38BDF8;
+  border-color: #A855F7;
+  box-shadow: 0 0 10px rgba(86, 34, 135, 0.5),
+              0 0 15px rgba(168, 85, 247, 0.5);
 }
 
+/* ✨ Button pop */
 button, .btn {
-  background: linear-gradient(90deg, #3B82F6, #06B6D4); /* blue → cyan */
+  background: linear-gradient(90deg, #3B82F6, #06B6D4, #A855F7);
+  background-size: 200%;
   color: white;
   font-weight: 600;
   padding: 12px 25px;
   border-radius: 12px;
   border: none;
   cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  transition: 0.3s;
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+  transition: 0.4s;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
 }
 
-button:hover, .btn:hover {
-  background: linear-gradient(90deg, #2563EB, #0891B2);
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.8);
+button:hover {
+  background-position: 100%;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.7);
 }
 
 .quiz-container {
@@ -150,3 +153,60 @@ tr:nth-child(even) {
   text-align: center;
   padding: 20px 0;
 }
+/* ✨ POP gradient border around card */
+.card {
+  background: rgba(8, 12, 24, 0.85);
+  border-radius: 18px;
+  padding: 2rem;
+  margin-top: 1rem;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 2px;
+  background: linear-gradient(135deg, #3B82F6, #38BDF8, #A855F7);
+  -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+
+
+/* Green Submit Button */
+#submit{
+  background: #22c55e !important; /* green */
+  background-size: 100% !important;
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+}
+
+button.submit-green:hover {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.7);
+  transform: scale(1.03);
+}
+/* Minimal Border Level Buttons */
+.level-buttons .btn {
+  background: transparent !important;
+  border: 2px solid #3B82F6;
+  color: #3B82F6;
+  box-shadow: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.level-buttons .btn:hover {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60A5FA;
+  border-color: #60A5FA;
+  transform: scale(1.05);
+}
+
+
