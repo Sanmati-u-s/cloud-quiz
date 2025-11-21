@@ -95,6 +95,8 @@ if (page.includes("quiz")) {
 
   quizForm.addEventListener("submit", e => {
     e.preventDefault();
+    const confirmSubmit = confirm("Are you sure you want to submit the quiz for scoring?");
+  if (!confirmSubmit) return;
 
     let score = 0;
 
@@ -104,7 +106,9 @@ if (page.includes("quiz")) {
     });
 
     localStorage.setItem("quizScore", score);
+    
     window.location.href = "result.html";
+     alert("Quiz successfully submitted!");
   });
 }
 

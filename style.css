@@ -181,5 +181,32 @@ tr:nth-child(even) {
 
 
 
+/* Green Submit Button */
+#submit{
+  background: #22c55e !important; /* green */
+  background-size: 100% !important;
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+}
+
+button.submit-green:hover {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.7);
+  transform: scale(1.03);
+}
+/* Minimal Border Level Buttons */
+.level-buttons .btn {
+  background: transparent !important;
+  border: 2px solid #3B82F6;
+  color: #3B82F6;
+  box-shadow: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.level-buttons .btn:hover {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60A5FA;
+  border-color: #60A5FA;
+  transform: scale(1.05);
+}
 
 
