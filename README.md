@@ -1,15 +1,18 @@
-# ☁️ Cloud Quiz Platform
+# ☁️ CloudRush 
 
-A simple cloud-based quiz platform where **instructors** can create quizzes and **students** can take them and view scores.
+A simple cloud-based quiz platform where **students** can take quizes to test their knowledge on cloud-computing and view scores & leaderboard.
 
 ## 🚀 Features
-- Instructor login and quiz creation  
-- Student login and quiz participation  
+- Student login and quiz participation
+- 3 different levels for quiz
 - Leaderboard for results  
 
 ## 🛠️ Technologies Used
-- HTML, CSS, JavaScript  
-- GitHub Pages for hosting  
+- HTML, CSS, JavaScript 
+- Firebase (BaaS) for backend 
+- GitHub Pages for hosting
+- Vercel for deployment
+- Dockerfile for containerization
 
 ## 📦 How to Run
 1. Clone this repository  
