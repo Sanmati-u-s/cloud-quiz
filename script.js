@@ -113,10 +113,10 @@ if (page.includes("quiz")) {
   });
 }
 
-// =======================================================
+/// =======================================================
 // RESULT PAGE LOGIC
 // =======================================================
-if (document.getElementById("leaderboard")) {
+if (document.getElementById("leaderboard-beginner")) {
 
   const score = Number(localStorage.getItem("quizScore") || 0);
   const username = localStorage.getItem("username") || "Student";
@@ -125,44 +125,57 @@ if (document.getElementById("leaderboard")) {
   document.getElementById("score").textContent = score;
   document.getElementById("levelInfo").textContent = `Level: ${level}`;
 
-  async function saveAndLoadLeaderboard() {
-
-    // Save attempt
+  async function saveScore() {
     await addDoc(collection(db, "leaderboard"), {
       name: username,
       score: score,
       level: level,
       createdAt: serverTimestamp()
     });
-
-    // Load leaderboard
-    const qLeaderboard = query(
-      collection(db, "leaderboard"),
-      orderBy("score", "desc")
-    );
-
-    const snapshot = await getDocs(qLeaderboard);
-
-    const table = document.getElementById("leaderboard");
-    let rank = 1;
-
-    snapshot.forEach(docSnap => {
-      const data = docSnap.data();
-
-      const row = document.createElement("tr");
-      row.innerHTML = `
-        <td>${rank}</td>
-        <td>${data.name}</td>
-        <td>${data.score}</td>
-      `;
-
-      table.appendChild(row);
-      rank++;
-    });
   }
 
-  saveAndLoadLeaderboard();
+  async function loadLeaderboards() {
+    const levels = ["beginner", "intermediate", "hard"];
+
+    for (const lvl of levels) {
+      const table = document.getElementById(`leaderboard-${lvl}`);
+
+      const qLeaderboard = query(
+        collection(db, "leaderboard"),
+        orderBy("score", "desc")
+      );
+
+      const snapshot = await getDocs(qLeaderboard);
+
+      let rank = 1;
+
+      snapshot.forEach(docSnap => {
+        const data = docSnap.data();
+
+        if (data.level === lvl) {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${rank}</td>
+            <td>${data.name}</td>
+            <td>${data.score}</td>
+          `;
+          table.appendChild(row);
+          rank++;
+        }
+      });
+
+      // If no data exists
+      if (rank === 1) {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td colspan="3">No entries yet</td>`;
+        table.appendChild(row);
+      }
+    }
+  }
+
+  saveScore().then(loadLeaderboards);
 }
+
 
 // =======================================================
 // NAVIGATION LOGIC
