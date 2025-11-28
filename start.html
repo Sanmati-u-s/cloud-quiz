@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Select Level | Cloud Quiz</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div class="container">
+  <nav class="navbar">
+    <div class="user-profile">
+      <div class="user-avatar" id="userAvatar">U</div>
+      <span id="navUser">User</span>
+    </div>
+    <button class="logout-btn" id="logoutBtn">Logout</button>
+  </nav>
+
+  <div class="container" style="margin-top: 80px;">
     <h1>Welcome, <span id="user"></span>!☁️</h1>
     <p>Select the level for the Cloud Computing quiz.</p>
 
@@ -20,7 +30,22 @@
 
   <script>
     const name = localStorage.getItem("username");
+    const studentId = localStorage.getItem("studentId");
+
+    if (!name || !studentId) {
+      window.location.href = "index.html";
+    }
+
     document.getElementById("user").innerText = name || "Student";
+    document.getElementById("navUser").innerText = name || "Student";
+    document.getElementById("userAvatar").innerText = (name || "S").charAt(0).toUpperCase();
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("username");
+      localStorage.removeItem("studentId");
+      window.location.href = "index.html";
+    });
   </script>
 </body>
+
 </html>
