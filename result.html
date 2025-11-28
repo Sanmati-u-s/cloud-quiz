@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,15 @@
 </head>
 
 <body>
-  <div class="container">
+  <nav class="navbar">
+    <div class="user-profile">
+      <div class="user-avatar" id="userAvatar">U</div>
+      <span id="navUser">User</span>
+    </div>
+    <button class="logout-btn" id="logoutBtn">Logout</button>
+  </nav>
+
+  <div class="container" style="margin-top: 80px;">
     <h1>🎉 Quiz Completed!</h1>
     <div class="card">
       <h2>Your Score: <span id="score"></span></h2>
@@ -32,4 +41,5 @@
   <script type="module" src="script.js"></script>
 
 </body>
+
 </html>

@@ -96,7 +96,7 @@ if (page.includes("quiz")) {
   quizForm.addEventListener("submit", e => {
     e.preventDefault();
     const confirmSubmit = confirm("Are you sure you want to submit the quiz for scoring?");
-  if (!confirmSubmit) return;
+    if (!confirmSubmit) return;
 
     let score = 0;
 
@@ -106,10 +106,10 @@ if (page.includes("quiz")) {
     });
 
     localStorage.setItem("quizScore", score);
-    
-    
-     alert("Quiz successfully submitted!");
-     window.location.href = "result.html";
+
+
+    alert("Quiz successfully submitted!");
+    window.location.href = "result.html";
   });
 }
 
@@ -162,4 +162,30 @@ if (document.getElementById("leaderboard")) {
   }
 
   saveAndLoadLeaderboard();
+}
+
+// =======================================================
+// NAVIGATION LOGIC
+// =======================================================
+const name = localStorage.getItem("username");
+const studentId = localStorage.getItem("studentId");
+
+// Redirect if not logged in (and not on login page)
+if ((!name || !studentId) && !path.endsWith("index.html") && !path.endsWith("/")) {
+  window.location.href = "index.html";
+}
+
+const navUser = document.getElementById("navUser");
+const userAvatar = document.getElementById("userAvatar");
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (navUser) navUser.innerText = name || "Student";
+if (userAvatar) userAvatar.innerText = (name || "S").charAt(0).toUpperCase();
+
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("username");
+    localStorage.removeItem("studentId");
+    window.location.href = "index.html";
+  });
 }
